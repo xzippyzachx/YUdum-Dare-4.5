@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2iphr8ndoepi"]
+
+[ext_resource type="PackedScene" uid="uid://dab0y6gtsjsmh" path="res://Scenes/button.tscn" id="1_8gcvk"]
+[ext_resource type="AudioStream" uid="uid://nqgj44tragcm" path="res://Sounds/simonSound1.ogg" id="2_djdbr"]
+[ext_resource type="AudioStream" uid="uid://dxmdpfgxxu4n8" path="res://Sounds/simonSound2.ogg" id="3_2n244"]
+[ext_resource type="AudioStream" uid="uid://cgars6fkpunrl" path="res://Sounds/simonSound3.ogg" id="4_a5vq8"]
+[ext_resource type="AudioStream" uid="uid://cyclibc5rgch3" path="res://Sounds/simonSound4.ogg" id="5_xripr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcwsb"]
+bg_color = Color(0.156863, 0.823529, 0.454902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opihw"]
+bg_color = Color(0.118079, 0.586403, 0.32138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_witon"]
+bg_color = Color(0.854902, 0.0470588, 0.054902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f0dm"]
+bg_color = Color(0.654537, 0.0228853, 0.0293797, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e84a"]
+bg_color = Color(0.909804, 0.878431, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s677x"]
+bg_color = Color(0.749789, 0.72344, 0.0110597, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxddr"]
+bg_color = Color(0.0352941, 0.603922, 0.984314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsvc8"]
+bg_color = Color(0.00492965, 0.442594, 0.732448, 1)
+
+[node name="Main" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="Score" type="RichTextLabel" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 340.0
+offset_right = 250.0
+offset_bottom = 395.0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Score: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button1" parent="." instance=ExtResource("1_8gcvk")]
+offset_left = 340.0
+offset_top = 60.0
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wcwsb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wcwsb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wcwsb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_opihw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wcwsb")
+btn_num = 1
+
+[node name="AudioStreamPlayer2D" parent="Button1" index="0"]
+stream = ExtResource("2_djdbr")
+
+[node name="Button2" parent="." instance=ExtResource("1_8gcvk")]
+offset_left = 640.0
+offset_top = 60.0
+offset_right = 940.0
+offset_bottom = 360.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_witon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_witon")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_witon")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1f0dm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_witon")
+text = "2"
+btn_num = 2
+
+[node name="AudioStreamPlayer2D" parent="Button2" index="0"]
+stream = ExtResource("3_2n244")
+
+[node name="Button3" parent="." instance=ExtResource("1_8gcvk")]
+offset_left = 340.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 660.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3e84a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3e84a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3e84a")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s677x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3e84a")
+text = "3"
+btn_num = 3
+
+[node name="AudioStreamPlayer2D" parent="Button3" index="0"]
+stream = ExtResource("4_a5vq8")
+
+[node name="Button4" parent="." instance=ExtResource("1_8gcvk")]
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 940.0
+offset_bottom = 660.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxddr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uxddr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uxddr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_dsvc8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uxddr")
+text = "4"
+btn_num = 4
+
+[node name="AudioStreamPlayer2D" parent="Button4" index="0"]
+stream = ExtResource("5_xripr")
+
+[editable path="Button1"]
+[editable path="Button2"]
+[editable path="Button3"]
+[editable path="Button4"]
