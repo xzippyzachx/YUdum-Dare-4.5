@@ -16,12 +16,14 @@ var high_score:int
 
 var rng = RandomNumberGenerator.new()
 var score_text:RichTextLabel
+var high_score_text:RichTextLabel
 
 signal play_repeat
 signal change_state
 
 func _ready() -> void:
 	score_text = get_node("/root/Main/Score")
+	high_score_text = get_node("/root/Main/HighScore")
 	
 	round = 0
 	_next_round()
@@ -40,6 +42,10 @@ func _check_memory(btn_num: int):
 		if check_round == round:
 			score += 1
 			score_text.text = "Score: " + str(score)
+			
+			if score > high_score:
+				high_score = score
+				high_score_text.text = "HighScore: " + str(high_score)
 			
 			await get_tree().create_timer(0.5).timeout
 			_next_round()
@@ -77,6 +83,7 @@ func _end_game():
 	
 	round = 0
 	score = 0
+	score_text.text = "Score: " + str(score)
 	memory.clear()
 	
 	_next_round()
